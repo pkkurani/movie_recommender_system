@@ -10,7 +10,7 @@ with open("split_file1.pkl", 'rb') as f1, open("split_file2.pkl", 'rb') as f2:
     data1 = pickle.load(f1)
     data2 = pickle.load(f2)
 
-similarity = data1 + data2
+similarity = np.concatenate((data1, data2), axis=0)
 
 
 movie_dict = pickle.load(open("movies_dict.pkl", "rb"))
