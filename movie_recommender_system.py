@@ -11,7 +11,7 @@ movies = pd.DataFrame(movie_dict)
 st.title("Movie Recommender System")
 
 def fetch_poster(movie_id):
-    response = requests.get(f'https://api.themoviedb.org/3/movie/{movie_id}?api_key=&language=en-US')
+    response = requests.get(f'https://api.themoviedb.org/3/movie/{movie_id}?api_key={st.secrets["apikey"]}&language=en-US')
 
     data = response.json()
     return 'http://image.tmdb.org/t/p/w500/'+data['poster_path']
