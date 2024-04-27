@@ -5,7 +5,14 @@ import pickle
 import numpy as np
 import requests
 
-similarity = pickle.load(open("similarity_tfidf.pkl", "rb"))
+# similarity = pickle.load(open("similarity_tfidf.pkl", "rb"))
+with open("split_file1.pkl", 'rb') as f1, open("split_file2.pkl", 'rb') as f2:
+    data1 = pickle.load(f1)
+    data2 = pickle.load(f2)
+
+similarity = data1 + data2
+
+
 movie_dict = pickle.load(open("movies_dict.pkl", "rb"))
 movies = pd.DataFrame(movie_dict)
 st.title("Movie Recommender System")
